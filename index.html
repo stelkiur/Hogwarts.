@@ -81,6 +81,9 @@ h2 { font-weight: normal; margin-bottom: 4vh; }
     border-radius: 10px;
     box-shadow: 0 0 30px rgba(0,0,0,0.6);
 }
+
+p { font-size: 18px; line-height: 1.6; }
+
 </style>
 </head>
 
@@ -99,8 +102,13 @@ h2 { font-weight: normal; margin-bottom: 4vh; }
     <h2>School of Witchcraft and Wizardry</h2>
 
     <p>
-        This page is protected by ancient magic.
-        Only a true witch may reveal what lies beyond the seal.
+    Hogwarts School of Witchcraft and Wizardry is a prestigious magical institution 
+    hidden deep within the Scottish Highlands. For centuries, it has trained young 
+    witches and wizards in the art of magic, teaching them to master spells, potions, 
+    and magical creatures. Students are sorted into four unique houses, each fostering 
+    friendship, courage, wisdom, and ambition. The castle is alive with enchantments, 
+    hidden passages, and secret treasures, offering an adventure unlike any other. 
+    Admission is granted only to those with true magical potential.
     </p>
 
     <img id="seal" src="seal.png" alt="Wax Seal" onclick="openLetter()">
@@ -111,8 +119,8 @@ h2 { font-weight: normal; margin-bottom: 4vh; }
 </div>
 
 <script>
-// 🔐 CAMBIA QUI LA PASSWORD
-const SECRET_PASSWORD = "05/09/2025";
+// 🔐 Cambia qui la password se vuoi
+const SECRET_PASSWORD = "05092025";
 
 function checkPassword() {
     const input = document.getElementById("password").value;
@@ -126,18 +134,4 @@ function checkPassword() {
 
 function openLetter() {
     const seal = document.getElementById("seal");
-    const letter = document.getElementById("letter");
-
-    seal.style.transform = "scale(0.3) rotate(720deg)";
-    seal.style.opacity = 0;
-
-    setTimeout(() => {
-        seal.style.display = "none";
-        letter.style.display = "block";
-        setTimeout(() => letter.style.opacity = 1, 100);
-    }, 1000);
-}
-</script>
-
-</body>
-</html>
+    const letter = document.getElementById
