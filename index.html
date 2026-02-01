@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Restricted Area – Hogwarts</title>
+
+<style>
+body {
+    margin: 0;
+    background: #1f1409;
+    font-family: Georgia, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #3b2a1a;
+}
+
+/* LOGIN */
+#login {
+    background: #f3e2c7;
+    padding: 5vh 6vw;
+    border-radius: 12px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.7);
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+}
+
+input {
+    padding: 1.5vh;
+    font-size: 18px;
+    width: 80%;
+    margin-top: 2vh;
+    border-radius: 8px;
+    border: 1px solid #999;
+}
+
+button {
+    margin-top: 3vh;
+    background: #6b2e2e;
+    color: white;
+    border: none;
+    padding: 1.5vh 3vw;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* MAIN CONTENT */
+#content {
+    display: none;
+    background: #f3e2c7;
+    padding: 5vh 6vw;
+    max-width: 900px;
+    border-radius: 12px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.7);
+    text-align: center;
+}
+
+h1 { font-size: 40px; }
+h2 { font-weight: normal; margin-bottom: 4vh; }
+
+#seal {
+    width: 120px;
+    margin-top: 4vh;
+    cursor: pointer;
+    transition: transform 1s, opacity 1s;
+}
+
+#letter {
+    display: none;
+    opacity: 0;
+    transition: opacity 2s;
+    margin-top: 4vh;
+}
+
+#letter img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+}
+</style>
+</head>
+
+<body>
+
+<div id="login">
+    <h1>Restricted Area</h1>
+    <p>Only those chosen by magic may proceed.</p>
+    <input type="password" id="password" placeholder="Enter the secret word">
+    <br>
+    <button onclick="checkPassword()">Enter</button>
+</div>
+
+<div id="content">
+    <h1>Hogwarts</h1>
+    <h2>School of Witchcraft and Wizardry</h2>
+
+    <p>
+        This page is protected by ancient magic.
+        Only a true witch may reveal what lies beyond the seal.
+    </p>
+
+    <img id="seal" src="seal.png" alt="Wax Seal" onclick="openLetter()">
+
+    <div id="letter">
+        <img src="lettera.jpeg" alt="Hogwarts Letter">
+    </div>
+</div>
+
+<script>
+// 🔐 CAMBIA QUI LA PASSWORD
+const SECRET_PASSWORD = "settembre05";
+
+function checkPassword() {
+    const input = document.getElementById("password").value;
+    if (input === SECRET_PASSWORD) {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("content").style.display = "block";
+    } else {
+        alert("Access denied by magic.");
+    }
+}
+
+function openLetter() {
+    const seal = document.getElementById("seal");
+    const letter = document.getElementById("letter");
+
+    seal.style.transform = "scale(0.3) rotate(720deg)";
+    seal.style.opacity = 0;
+
+    setTimeout(() => {
+        seal.style.display = "none";
+        letter.style.display = "block";
+        setTimeout(() => letter.style.opacity = 1, 100);
+    }, 1000);
+}
+</script>
+
+</body>
+</html>
